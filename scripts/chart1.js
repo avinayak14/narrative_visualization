@@ -7,11 +7,11 @@ charts.chart1 = function() {
   const parseDateTime = d3.timeParse("%B %d, %Y");
 
   // initialise charts
-  // const svg = d3.select('#svg1')
-  //     .attr('width', width + margin.left + margin.right)
-  //     .attr('height', height + margin.top + margin.bottom)
-  //     .append('g')
-  //     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+  const svg = d3.select('#svg1')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+      .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
   // get data
   // const file = 'data/NetflixOriginals.json';
