@@ -49,19 +49,18 @@
         <h3>TESTING SLIDE</h3>
         <script src='https://d3js.org/d3.v5.min.js'></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
-        <body onload='init()'>
+        <body>
         <svg width=300 height=300>
         </svg>
         <script>
-        async function init() {
-          const data = await d3.csv("data/cars2017.csv");
-          const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
-          const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+          var data = d3.csv("data/cars2017.csv");
+          var xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+          var yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
-          const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
-          const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
+          var xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
+          var yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
 
-          const svg = d3.select('svg');
+          var svg = d3.select('svg');
 
           svg.append('g').attr('transform', 'translate(50,50)').selectAll('circle')
               .data(data)
