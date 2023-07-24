@@ -63,7 +63,7 @@
           var svg = d3.select('svg');
 
           svg.append('g').attr('transform', 'translate(50,50)').selectAll('circle')
-              .data(data)
+              .data(await data)
               .enter()
               .append('circle')
               .attr('cx', d => xScale(d.AverageCityMPG))
