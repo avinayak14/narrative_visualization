@@ -55,6 +55,7 @@
         <script>
           async function init() {
             const data = await d3.csv("data/cars_2017.csv");
+            console.log(data);
             var xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
             var yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
