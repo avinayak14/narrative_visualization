@@ -64,10 +64,10 @@
 
             const svg = d3.select('svg');
 
-            svg.append('g').attr('transform', 'translate(50,50)').selectAll('circle')
+            svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                 .data(data)
                 .enter()
-                .append('circle')
+                .append("circle")
                 .attr('cx', d => xScale(d.AverageCityMPG))
                 .attr('cy', d => yScale(d.AverageHighwayMPG))
                 .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
