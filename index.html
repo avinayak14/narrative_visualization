@@ -46,6 +46,43 @@
         </div>
       </div>
       <div class="slide" data-anchor="chart1">
+        <h3>TESTING SLIDE</h3>
+        <script src='https://d3js.org/d3.v5.min.js'></script>
+        <style> circle {fill: lightblue; stroke: black;} </style>
+        <body onload='init()'>
+        <svg width=300 height=300>
+        </svg>
+        <script>
+        async function init() {
+          const data = await d3.csv("data/cars2017.csv");
+          const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+          const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+
+          const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
+          const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]).tickFormat(d3.format('~s'));
+
+          const svg = d3.select('svg');
+
+          svg.append('g').attr('transform', 'translate(50,50)').selectAll('circle')
+              .data(data)
+              .enter()
+              .append('circle')
+              .attr('cx', d => xScale(d.AverageCityMPG))
+              .attr('cy', d => yScale(d.AverageHighwayMPG))
+              .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+
+          svg.append('g')
+              .attr('transform', 'translate(50,50)')
+              .call(yAxis);
+
+          svg.append('g')
+              .attr('transform', 'translate(50,250)')
+              .call(xAxis);
+        }
+        </script>
+        </body>
+      </div>
+      <div class="slide" data-anchor="chart1">
         <h3>Number of Countries with High Populations</h3>
         <div class="chart chart1">
           <svg id="svg1"></svg>
