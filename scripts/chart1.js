@@ -110,7 +110,7 @@ charts.chart1 = function() {
 
 
 
-  const data = await d3.csv("https://flunky.github.io/cars2017.csv");
+  const data = await d3.csv("data/cars2017.csv");
 
   const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
   const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
