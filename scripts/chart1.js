@@ -1,35 +1,35 @@
 charts.chart1 = function() {
   // initialise layout variables
-  const margin = {top: 50, right: 20, bottom: 50, left: 60};
-  const width = 600;
-  const height = 400;
-
-  const parseDateTime = d3.timeParse("%B %d, %Y");
-
-  const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
-  const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
-
-  const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
-  const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
-
-  const svg = d3.select('svg');
-  svg.append('g')
-      .attr('transform', 'translate(50,50)')
-      .call(yAxis);
-
-  svg.append('g')
-      .attr('transform', 'translate(50,250)')
-      .call(xAxis);
-
-  const data = d3.csv("data/cars_2017.csv");
-
-  svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
-      .data(data)
-      .enter()
-      .append("circle")
-      .attr('cx', d => xScale(d.AverageCityMPG))
-      .attr('cy', d => yScale(d.AverageHighwayMPG))
-      .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+  // const margin = {top: 50, right: 20, bottom: 50, left: 60};
+  // const width = 600;
+  // const height = 400;
+  //
+  // const parseDateTime = d3.timeParse("%B %d, %Y");
+  //
+  // const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+  // const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+  //
+  // const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
+  // const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
+  //
+  // const svg = d3.select('svg');
+  // svg.append('g')
+  //     .attr('transform', 'translate(50,50)')
+  //     .call(yAxis);
+  //
+  // svg.append('g')
+  //     .attr('transform', 'translate(50,250)')
+  //     .call(xAxis);
+  //
+  // const data = d3.csv("data/cars_2017.csv");
+  //
+  // svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+  //     .data(data)
+  //     .enter()
+  //     .append("circle")
+  //     .attr('cx', d => xScale(d.AverageCityMPG))
+  //     .attr('cy', d => yScale(d.AverageHighwayMPG))
+  //     .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
 
   // initialise charts
   // const svg = d3.select('#svg1')
