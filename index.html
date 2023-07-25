@@ -71,23 +71,23 @@
                 .attr('transform', 'translate(50,250)')
                 .call(xAxis);
 
-            d3.csv("data/cars_2017.csv").then(function(data) {
-              console.log(data)
-              svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
-              .data(data)
-              .enter()
-              .append("circle")
-              .attr('cx', d => xScale(d.AverageCityMPG))
-              .attr('cy', d => yScale(d.AverageHighwayMPG))
-              .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-
-            }).catch(function(error){
-            // handle error
-            })
-
-            // const data = await d3.csv("data/NetflixOriginals.csv");
-            // console.log(data);
+            // d3.csv("data/cars_2017.csv").then(function(data) {
+            //   console.log(data)
+            //   svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+            //   .data(data)
+            //   .enter()
+            //   .append("circle")
+            //   .attr('cx', d => xScale(d.AverageCityMPG))
+            //   .attr('cy', d => yScale(d.AverageHighwayMPG))
+            //   .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
             //
+            // }).catch(function(error){
+            // // handle error
+            // })
+
+            const data = await d3.csv("data/NetflixOriginals.csv");
+            console.log(data);
+            
             svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                 .data(data)
                 .enter()
