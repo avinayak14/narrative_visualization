@@ -54,7 +54,7 @@
         </svg>
         </body>
         <script>
-          function init() {
+          async function init() {
             const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
             const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
@@ -70,7 +70,7 @@
                 .attr('transform', 'translate(50,250)')
                 .call(xAxis);
 
-            const data = d3.csv("data/cars_2017.csv");
+            const data = await d3.csv("data/cars_2017.csv");
 
             svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                 .data(data)
