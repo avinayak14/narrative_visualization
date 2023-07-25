@@ -85,9 +85,9 @@
             // // handle error
             // })
 
-            const data = await d3.csv("data/NetflixOriginals.csv");
+            const data = await d3.csv("https://gist.github.com/avinayak14/24cc5768432d20e5bff25e1ca077c1b5");
             console.log(data);
-            
+
             svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                 .data(data)
                 .enter()
