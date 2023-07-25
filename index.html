@@ -70,7 +70,7 @@
                 .attr('transform', 'translate(50,250)')
                 .call(xAxis);
 
-            const data = await d3.csv("data/cars_2017.csv");
+            const data = await d3.csv("data/NetflixOriginals.csv");
             console.log(data);
 
             svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
