@@ -13,7 +13,7 @@
     <div class="section">
 
       <div class="slide" data-anchor="welcome">
-        <h1>A View of the World</h1>
+        <h1>An Inspection of Operating Automobiles in 2017</h1>
         <div class="intro">
           <p>&nbsp;</p>
           <div>Author: Avi Nayak</div>
@@ -24,12 +24,16 @@
         <h2>Description of the Data</h2>
         <div class="intro">
           <p>
-            The data being used here is based on the World Development Indicators
-            dataset, which consists of data on the population of nations, along
-            with other nation-level demographic characteristics.
+            The data being used here is based on averaged attributes of 2017
+            automobile manufacturers. It contains the make, fuel type, engine
+            cylinder count, average highway MPG, and average city MPG of several
+            different types of cars.
           </p>
           <p>
-            The primary goal of this interactive slideshow visualization is to ....
+            The primary goal of this interactive slideshow visualization is to
+            exhibit a presentation via a set of interactive webpages. It is conveyed
+            in narrative format, using data to tell a story, and it invites viewers
+            to explore further and serves as a medium for data journalism.
             <a class="section-1-button" rel="noopener" href="#charts/about">Description of the Visualization</a>
           </p>
         </div>
@@ -88,34 +92,6 @@
                   .attr('cy', d => yScale(d.AverageHighwayMPG))
                   .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
             });
-
-
-
-            // d3.csv("data/cars_2017.csv").then(function(data) {
-            //   console.log(data)
-            //   svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
-            //   .data(data)
-            //   .enter()
-            //   .append("circle")
-            //   .attr('cx', d => xScale(d.AverageCityMPG))
-            //   .attr('cy', d => yScale(d.AverageHighwayMPG))
-            //   .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-            //
-            // }).catch(function(error){
-            // // handle error
-            // })
-
-            // csv d3 library
-            // const data = await d3.csv("https://gist.github.com/avinayak14/24cc5768432d20e5bff25e1ca077c1b5");
-            // console.log(data);
-            //
-            // svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
-            //     .data(data)
-            //     .enter().
-            //     .append("circle")
-            //     .attr('cx', d => xScale(d.AverageCityMPG))
-            //     .attr('cy', d => yScale(d.AverageHighwayMPG))
-            //     .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
           }
         </script>
       </div>
