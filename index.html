@@ -50,12 +50,12 @@
         <script src='https://d3js.org/d3.v4.min.js'></script>
         <!-- <script src="https://gist.github.com/avinayak14/24cc5768432d20e5bff25e1ca077c1b5.js"></script> -->
         <style> circle {fill: lightblue; stroke: black;} </style>
-        <!-- <body onload='init()'> -->
+        <body onload='init()'>
         <svg width=300 height=300>
         </svg>
-        <!-- </body> -->
+        </body>
         <script>
-          // async function init() {
+          async function init() {
             const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
             const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
@@ -78,7 +78,7 @@
               return d;
             };
 
-            d3.csv('data/cars_2017.csv', row, data => {
+            await d3.csv('data/cars_2017.csv', row, data => {
               console.log(data);
               svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                   .data(data)
@@ -116,7 +116,7 @@
             //     .attr('cx', d => xScale(d.AverageCityMPG))
             //     .attr('cy', d => yScale(d.AverageHighwayMPG))
             //     .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-          // }
+          }
         </script>
       </div>
       <div class="slide" data-anchor="chart1">
