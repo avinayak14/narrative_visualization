@@ -52,6 +52,7 @@
         <body onload='init()'>
         <svg width=300 height=300>
         </svg>
+        </body>
         <script>
           function init() {
             const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
@@ -80,7 +81,6 @@
                 .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
           }
         </script>
-        </body>
       </div>
       <div class="slide" data-anchor="chart1">
         <h3>Number of Countries with High Populations</h3>
