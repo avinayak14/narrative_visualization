@@ -49,12 +49,12 @@
         <h3>TESTING SLIDE</h3>
         <script src='https://d3js.org/d3.v4.min.js'></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
-        <body onload='init()'>
+        <!-- <body onload='init()'> -->
         <svg width=300 height=300>
         </svg>
-        </body>
+        <!-- </body> -->
         <script>
-          function init() {
+          // function init() {
             const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
             const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
@@ -79,7 +79,7 @@
                 .attr('cx', d => xScale(d.AverageCityMPG))
                 .attr('cy', d => yScale(d.AverageHighwayMPG))
                 .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-          }
+          // }
         </script>
       </div>
       <div class="slide" data-anchor="chart1">

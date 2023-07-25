@@ -21,7 +21,7 @@ charts.chart1 = function() {
       .attr('transform', 'translate(50,250)')
       .call(xAxis);
 
-  const data = await d3.csv("data/cars_2017.csv");
+  const data = d3.csv("data/cars_2017.csv");
 
   svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
       .data(data)
