@@ -78,11 +78,11 @@
               return d;
             };
 
-            d3.csv('iris.csv', row, data => {
+            d3.csv('data/cars_2017.csv', row, data => {
               console.log(data);
               svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
                   .data(data)
-                  .enter()
+                  .enter().
                   .append("circle")
                   .attr('cx', d => xScale(d.AverageCityMPG))
                   .attr('cy', d => yScale(d.AverageHighwayMPG))
@@ -111,7 +111,7 @@
             //
             // svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
             //     .data(data)
-            //     .enter()
+            //     .enter().
             //     .append("circle")
             //     .attr('cx', d => xScale(d.AverageCityMPG))
             //     .attr('cy', d => yScale(d.AverageHighwayMPG))
