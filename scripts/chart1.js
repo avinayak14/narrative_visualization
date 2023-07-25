@@ -6,6 +6,31 @@ charts.chart1 = function() {
 
   const parseDateTime = d3.timeParse("%B %d, %Y");
 
+  const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+  const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+
+  const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
+  const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
+
+  const svg = d3.select('svg');
+  svg.append('g')
+      .attr('transform', 'translate(50,50)')
+      .call(yAxis);
+
+  svg.append('g')
+      .attr('transform', 'translate(50,250)')
+      .call(xAxis);
+
+  const data = await d3.csv("data/cars_2017.csv");
+
+  svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr('cx', d => xScale(d.AverageCityMPG))
+      .attr('cy', d => yScale(d.AverageHighwayMPG))
+      .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+
   // initialise charts
   // const svg = d3.select('#svg1')
   //     .attr('width', width + margin.left + margin.right)
