@@ -64,6 +64,15 @@ charts.chart2 = function() {
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
   });
 }
+
+const params = [
+  {
+    id: "Nonzero",
+  },
+  {
+    id: "Nonzero",
+  },
+];
 // var finalDataChart2 = [];
 //
 // // initialise layout variables
