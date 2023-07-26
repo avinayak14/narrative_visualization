@@ -1,66 +1,69 @@
-const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
-const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+charts.chart2 = function() {
 
-const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
-const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
+  const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+  const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
-const svg = d3.select('#svg2');
-svg.append('g')
-    .attr('transform', 'translate(50,50)')
-    .call(yAxis);
+  const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
+  const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
 
-svg.append('g')
-    .attr('transform', 'translate(50,250)')
-    .call(xAxis);
+  const svg = d3.select('#svg2');
+  svg.append('g')
+      .attr('transform', 'translate(50,50)')
+      .call(yAxis);
 
-const annotations = [
-  {
-    note: {
-      label: "Starts producing"
+  svg.append('g')
+      .attr('transform', 'translate(50,250)')
+      .call(xAxis);
+
+  const annotations = [
+    {
+      note: {
+        label: "Starts producing"
+      },
+      connector: {
+        end: "arrow"
+      },
+      type: d3.annotationLabel,
+      x: 100,
+      y: 200,
+      dx: 0,
+      dy: -25
     },
-    connector: {
-      end: "arrow"
-    },
-    type: d3.annotationLabel,
-    x: 100,
-    y: 200,
-    dx: 0,
-    dy: -25
-  },
-  {
-    note: {
-      label: "Peak so far"
-    },
-    connector: {
-      end: "arrow"
-    },
-    type: d3.annotationLabel,
-    x: 200,
-    y: 200,
-    dx: 0,
-    dy: -25
-  }
-];
-const makeAnnotations = d3.annotation().annotations(annotations);
-svg.append('g').call(makeAnnotations);
+    {
+      note: {
+        label: "Peak so far"
+      },
+      connector: {
+        end: "arrow"
+      },
+      type: d3.annotationLabel,
+      x: 200,
+      y: 200,
+      dx: 0,
+      dy: -25
+    }
+  ];
+  const makeAnnotations = d3.annotation().annotations(annotations);
+  svg.append('g').call(makeAnnotations);
 
-const row = d => {
-  d.EngineCylinders = +d.EngineCylinders;
-  d.AverageHighwayMPG = +d.AverageHighwayMPG;
-  d.AverageCityMPG = +d.AverageCityMPG;
-  return d;
-};
+  const row = d => {
+    d.EngineCylinders = +d.EngineCylinders;
+    d.AverageHighwayMPG = +d.AverageHighwayMPG;
+    d.AverageCityMPG = +d.AverageCityMPG;
+    return d;
+  };
 
-d3.csv('data/cars_2017.csv', row, data => {
-  console.log(data);
-  svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
-      .data(data)
-      .enter()
-      .append("circle")
-      .attr('cx', d => xScale(d.AverageCityMPG))
-      .attr('cy', d => yScale(d.AverageHighwayMPG))
-      .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-});
+  d3.csv('data/cars_2017.csv', row, data => {
+    console.log(data);
+    svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr('cx', d => xScale(d.AverageCityMPG))
+        .attr('cy', d => yScale(d.AverageHighwayMPG))
+        .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+  });
+}
 // var finalDataChart2 = [];
 //
 // // initialise layout variables
