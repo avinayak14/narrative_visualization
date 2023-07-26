@@ -63,6 +63,26 @@ charts.chart2 = function() {
         .attr('cy', d => yScale(d.AverageHighwayMPG))
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
   });
+
+  // adding checkboxes:
+  params.forEach(function(param) {
+        if (!d3.select('#' + param.id).property('checked')) {
+          data = data.filter(d => d['Genre'] != param.id);
+        }
+      });
+  if (params.some(param => !d3.select('#' + param.id).property('checked'))) {
+      // remove annotations
+      d3.select('#svg-2-annotations').selectAll('*').remove();
+      d3.select('#svg-2-annotations').remove();
+    } else {
+      // Add annotation to the chart
+      const makeAnnotations = d3.annotation()
+          .annotations(annotations);
+      d3.select("#svg2")
+          .append("g")
+          .attr('id', 'svg-2-annotations')
+          .call(makeAnnotations);
+    }
 }
 
 const params = [
