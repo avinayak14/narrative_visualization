@@ -92,47 +92,87 @@
                   .attr('cy', d => yScale(d.AverageHighwayMPG))
                   .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
             });
+
+            const annotations = [
+              {
+                note: {
+                  label: "Starts producing"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                type: d3.annotationLabel,
+                x: 125,
+                y: 450,
+                dx: 0,
+                dy: -25
+              },
+              {
+                note: {
+                  label: "Peak so far"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                type: d3.annotationLabel,
+                x: 545,
+                y: 85,
+                dx: 0,
+                dy: -25
+              }
+            ];
+            const makeAnnotations = d3.annotation().annotations(annotations);
+            d3.select("#svg1").append("g").call(makeAnnotations);
           }
         </script>
       </div>
-      <div class="slide" data-anchor="chart2">
-        <h3>Automobile Filters Chart 1</h3>
-        <div class="chart chart2">
-          <!-- <svg id="svg2"></svg>
-          <input type="checkbox" checked="checked" value="2014" id="Action" onClick="updateChart2Data()">Action</input>
-          <input type="checkbox" checked="checked" value="2015" id="Adventure" onClick="updateChart2Data()">Adventure</input>
-          <input type="checkbox" checked="checked" value="2016" id="Animation" onClick="updateChart2Data()">Animation</input>
-          <input type="checkbox" checked="checked" value="2017" id="Anime" onClick="updateChart2Data()">Anime</input>
-          <input type="checkbox" checked="checked" value="2018" id="Christmas" onClick="updateChart2Data()">Christmas</input>
-          <input type="checkbox" checked="checked" value="2019" id="Comedy" onClick="updateChart2Data()">Comedy</input>
-          <input type="checkbox" checked="checked" value="2020" id="Crime" onClick="updateChart2Data()">Crime</input>
-          <input type="checkbox" checked="checked" value="2021" id="Documentary" onClick="updateChart2Data()">Documentary</input>
-          <input type="checkbox" checked="checked" value="2021" id="Drama" onClick="updateChart2Data()">Drama</input>
-          <input type="checkbox" checked="checked" value="2021" id="Fantasy" onClick="updateChart2Data()">Fantasy</input>
-          <input type="checkbox" checked="checked" value="2021" id="Family" onClick="updateChart2Data()">Family</input>
-          <input type="checkbox" checked="checked" value="2021" id="Musical" onClick="updateChart2Data()">Musical</input>
-          <input type="checkbox" checked="checked" value="2021" id="Mystery" onClick="updateChart2Data()">Mystery</input>
-          <input type="checkbox" checked="checked" value="2021" id="Other" onClick="updateChart2Data()">Other</input>
-          <input type="checkbox" checked="checked" value="2021" id="Romance" onClick="updateChart2Data()">Romance</input>
-          <input type="checkbox" checked="checked" value="2021" id="Science-Fiction" onClick="updateChart2Data()">Science Fiction</input>
-          <input type="checkbox" checked="checked" value="2021" id="Sports-film" onClick="updateChart2Data()">Sports film</input>
-          <input type="checkbox" checked="checked" value="2021" id="War" onClick="updateChart2Data()">War</input>
-          <input type="checkbox" checked="checked" value="2021" id="Western" onClick="updateChart2Data()">Western</input> -->
-        </div>
-        <div class="intro">
-          <p>
-            This chart shows that average IMDB scores have actually steadily declined over the past several years
-            starting in 2016. So far, Netflix original films in 2021 have received the worst scores since 2014.
-            Check/uncheck the checkboxes to see how scores have changed for a given set of genres.
-          </p>
-          <p>
-            This chart ultimately answers the question of whether or not Netflix has gotten better at producing original
-            films - on average, they haven't. That being said, it's difficult to see how all genres have scored for a given year.
-            Next (and finally), let's take a look at average scores for each genre to provide even more insight into
-            the data.
-          </p>
-        </div>
+      <div class="slide">
+        <h3>Average Highway MPG vs. Average City MPG (With Filter) </h3>
+        <script src='https://d3js.org/d3.v4.min.js'></script>
+        <!-- <script src="https://gist.github.com/avinayak14/24cc5768432d20e5bff25e1ca077c1b5.js"></script> -->
+        <style> circle {fill: lightblue; stroke: black;} </style>
+        <body onload='init()'>
+        <svg width=300 height=300>
+        </svg>
+        </body>
+        <script>
+          async function init() {
+            const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+            const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+
+            const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
+            const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
+
+            const svg = d3.select('svg');
+            svg.append('g')
+                .attr('transform', 'translate(50,50)')
+                .call(yAxis);
+
+            svg.append('g')
+                .attr('transform', 'translate(50,250)')
+                .call(xAxis);
+
+            const row = d => {
+              d.EngineCylinders = +d.EngineCylinders;
+              d.AverageHighwayMPG = +d.AverageHighwayMPG;
+              d.AverageCityMPG = +d.AverageCityMPG;
+              return d;
+            };
+
+            await d3.csv('data/cars_2017.csv', row, data => {
+              console.log(data);
+              svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                  .attr('cx', d => xScale(d.AverageCityMPG))
+                  .attr('cy', d => yScale(d.AverageHighwayMPG))
+                  .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+            });
+          }
+        </script>
       </div>
+
       <div class="slide" data-anchor="chart3">
         <h3>Countries with the Most Young People</h3>
         <!-- <div class="chart chart3">
