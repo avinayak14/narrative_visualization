@@ -68,19 +68,19 @@ charts.chart2 = function() {
             data = data.filter(d => d.EngineCylinders > 0);
           }
         });
-    if (params.some(param => !d3.select('#' + param.id).property('checked'))) {
-        // remove annotations
-        d3.select('#svg-2-annotations').selectAll('*').remove();
-        d3.select('#svg-2-annotations').remove();
-      } else {
-        // Add annotation to the chart
-        const makeAnnotations = d3.annotation()
-            .annotations(annotations);
-        d3.select("#svg2")
-            .append("g")
-            .attr('id', 'svg-2-annotations')
-            .call(makeAnnotations);
-      }
+    // if (params.some(param => !d3.select('#' + param.id).property('checked'))) {
+    //     // remove annotations
+    //     d3.select('#svg-2-annotations').selectAll('*').remove();
+    //     d3.select('#svg-2-annotations').remove();
+    //   } else {
+    //     // Add annotation to the chart
+    //     const makeAnnotations = d3.annotation()
+    //         .annotations(annotations);
+    //     d3.select("#svg2")
+    //         .append("g")
+    //         .attr('id', 'svg-2-annotations')
+    //         .call(makeAnnotations);
+    //   }
   });
 
 }
@@ -90,7 +90,7 @@ const params = [
     id: "Nonzero",
   },
   {
-    id: "Nonzero",
+    id: "Zero",
   },
 ];
 // var finalDataChart2 = [];
