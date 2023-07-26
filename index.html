@@ -55,8 +55,7 @@
         <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
         <body onload='init()'>
-        <svg width=300 height=300>
-        </svg>
+        <svg width=300 height=300 id="svg1"></svg>
         </body>
         <script>
           async function init() {
@@ -132,7 +131,7 @@
         <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
         <body onload='init_v2()'>
-        <svg width=300 height=300>
+        <svg width=300 height=300 id="svg2"></svg>
         </svg>
         </body>
         <script>
@@ -143,7 +142,7 @@
             const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
             const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
 
-            const svg = d3.select('svg');
+            const svg = d3.select('#svg2');
             svg.append('g')
                 .attr('transform', 'translate(50,50)')
                 .call(yAxis);
