@@ -76,6 +76,37 @@
                 .attr('transform', 'translate(50,250)')
                 .call(xAxis);
 
+            const annotations = [
+              {
+                note: {
+                  label: "Starts producing"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                // type: d3.annotationLabel,
+                x: 100,
+                y: 200,
+                dx: 0,
+                dy: -25
+              },
+              {
+                note: {
+                  label: "Peak so far"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                // type: d3.annotationLabel,
+                x: 200,
+                y: 200,
+                dx: 0,
+                dy: -25
+              }
+            ];
+            const makeAnnotations = d3.annotation().annotations(annotations);
+            svg.append('g').call(makeAnnotations);
+
             const row = d => {
               d.EngineCylinders = +d.EngineCylinders;
               d.AverageHighwayMPG = +d.AverageHighwayMPG;
@@ -93,37 +124,6 @@
                   .attr('cy', d => yScale(d.AverageHighwayMPG))
                   .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
             });
-
-            const annotations = [
-              {
-                note: {
-                  label: "Starts producing"
-                },
-                connector: {
-                  end: "arrow"
-                },
-                type: d3.annotationLabel,
-                x: 50,
-                y: 100,
-                dx: 0,
-                dy: -25
-              },
-              {
-                note: {
-                  label: "Peak so far"
-                },
-                connector: {
-                  end: "arrow"
-                },
-                type: d3.annotationLabel,
-                x: 100,
-                y: 150,
-                dx: 0,
-                dy: -25
-              }
-            ];
-            const makeAnnotations = d3.annotation().annotations(annotations);
-            svg.append("g").call(makeAnnotations);
           }
         </script>
       </div>
