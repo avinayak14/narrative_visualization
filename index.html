@@ -183,6 +183,75 @@
             const makeAnnotations = d3.annotation().annotations(annotations);
             svg.append('g').call(makeAnnotations);
 
+            const data = await d3.csv('data/cars_2017.csv', row);
+
+            svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
+                  .data(data)
+                  .enter()
+                  .append("circle")
+                  .attr('cx', d => xScale(d.AverageCityMPG))
+                  .attr('cy', d => yScale(d.AverageHighwayMPG))
+                  .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
+          }
+        </script>
+      </div>
+      <!-- <div class="slide">
+        <h3>Average Highway MPG vs. Average City MPG (With Filter)</h3>
+        <script src='https://d3js.org/d3.v4.min.js'></script>
+        <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+        <style> circle {fill: lightblue; stroke: black;} </style>
+        <body onload='init_v2()'>
+        <svg width=300 height=300>
+        </svg>
+        </body>
+        <script>
+          async function init_v2() {
+            const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
+            const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
+
+            const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
+            const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
+
+            const svg = d3.select('svg');
+            svg.append('g')
+                .attr('transform', 'translate(50,50)')
+                .call(yAxis);
+
+            svg.append('g')
+                .attr('transform', 'translate(50,250)')
+                .call(xAxis);
+
+            const annotations = [
+              {
+                note: {
+                  label: "Starts producing"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                type: d3.annotationLabel,
+                x: 100,
+                y: 200,
+                dx: 0,
+                dy: -25
+              },
+              {
+                note: {
+                  label: "Peak so far"
+                },
+                connector: {
+                  end: "arrow"
+                },
+                type: d3.annotationLabel,
+                x: 200,
+                y: 200,
+                dx: 0,
+                dy: -25
+              }
+            ];
+            const makeAnnotations = d3.annotation().annotations(annotations);
+            svg.append('g').call(makeAnnotations);
+
             const row = d => {
               d.EngineCylinders = +d.EngineCylinders;
               d.AverageHighwayMPG = +d.AverageHighwayMPG;
@@ -202,7 +271,7 @@
             });
           }
         </script>
-      </div>
+      </div> -->
       <div class="slide" data-anchor="source">
         <h2>Sources</h2>
         <div class="intro">
