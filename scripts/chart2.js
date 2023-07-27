@@ -54,7 +54,6 @@ charts.chart2 = function() {
   };
 
   d3.csv('data/cars_2017.csv', row, data => {
-    console.log(data);
     svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
         .data(data)
         .enter()
@@ -64,6 +63,7 @@ charts.chart2 = function() {
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
     // adding checkboxes:
     params.forEach(function(param) {
+      console.log(param.id);
           if (!d3.select('#' + param.id).property('checked')) {
             data = data.filter(d => d.EngineCylinders > 0);
           }
