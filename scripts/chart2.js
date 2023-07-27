@@ -6,7 +6,7 @@ charts.chart2 = function() {
   const xAxis = d3.axisBottom(xScale).tickValues([10, 20, 50, 100]);
   const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
 
-  const svg = d3.select('#svg3');
+  const svg = d3.select('#svg2');
   svg.append('g')
       .attr('transform', 'translate(50,50)')
       .call(yAxis);
