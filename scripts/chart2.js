@@ -62,9 +62,10 @@ charts.chart2 = function() {
         .attr('cy', d => yScale(d.AverageHighwayMPG))
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
     // adding checkboxes:
+    const checkbox = d3.select('body').append('input').attr('type', 'checkbox');
     params.forEach(function(param) {
       console.log(param.id);
-          if (!d3.select('#' + param.id).property('checked')) {
+          if (!checkbox.property('checked')) {
             data = data.filter(d => d.EngineCylinders > 0);
           }
         });
