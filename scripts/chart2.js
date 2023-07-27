@@ -62,7 +62,7 @@ charts.chart2 = function() {
         .attr('cy', d => yScale(d.AverageHighwayMPG))
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
     // adding checkboxes:
-    const checkbox = d3.select('body').append('input').attr('type', 'checkbox');
+    const checkbox = svg.append('input').attr('type', 'checkbox');
     params.forEach(function(param) {
       console.log(param.id);
           if (!checkbox.property('checked')) {
