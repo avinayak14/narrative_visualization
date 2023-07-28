@@ -68,12 +68,3 @@ function getAndDrawDataChart1() {
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
   });
 }
-
-const paramsChart1 = [
-  {
-    id: "Include_Zero_Cyls",
-  },
-  {
-    id: "Zero",
-  },
-];
