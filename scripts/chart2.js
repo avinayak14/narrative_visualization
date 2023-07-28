@@ -1,9 +1,9 @@
 charts.chart2 = function() {
-  getAndDrawData();
+  getAndDrawDataChart2();
 }
 
 
-function getAndDrawData() {
+function getAndDrawDataChart2() {
 
   console.log("has hit chart 2 get and draw data");
 
@@ -31,7 +31,7 @@ function getAndDrawData() {
         end: "arrow"
       },
       type: d3.annotationLabel,
-      x: 100,
+      x: 120,
       y: 50,
       dx: 0,
       dy: -25
@@ -68,7 +68,7 @@ function getAndDrawData() {
       if (!d3.select('#' + param.id).property('checked')) {
         console.log("testing reach");
         console.log(data);
-        data = data.filter(d => d.EngineCylinders == 0);
+        data = data.filter(d => d.EngineCylinders != 0);
         console.log("now filtered");
         console.log(data);
       }
@@ -305,5 +305,5 @@ const paramsChart2 = [
 // ];
 //
 function updateChart2Data() {
-  getAndDrawData();
+  getAndDrawDataChart2();
 }

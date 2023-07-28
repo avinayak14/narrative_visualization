@@ -31,8 +31,8 @@ function getAndDrawDataChart1() {
         end: "arrow"
       },
       type: d3.annotationLabel,
-      x: 100,
-      y: 125,
+      x: 120,
+      y: 50,
       dx: 0,
       dy: -25
     },
@@ -44,8 +44,8 @@ function getAndDrawDataChart1() {
         end: "arrow"
       },
       type: d3.annotationLabel,
-      x: 250,
-      y: 100,
+      x: 200,
+      y: 200,
       dx: 0,
       dy: 25
     }
