@@ -77,6 +77,7 @@ function getAndDrawData() {
 
     console.log("going into svg");
     console.log(data);
+    svg.selectAll('circle').remove();
 
     svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
         .data(data)
