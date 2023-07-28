@@ -61,7 +61,7 @@ function getAndDrawData() {
   d3.csv('data/cars_2017.csv', row, data => {
 
     // adding checkboxes:
-    params.forEach(function(param) {
+    paramsChart1.forEach(function(param) {
       console.log(param.id);
           if (!d3.select('#' + param.id).property('checked')) {
             console.log("testing reach");
@@ -80,7 +80,7 @@ function getAndDrawData() {
 
 }
 
-const params = [
+const paramsChart1 = [
   {
     id: "Nonzero",
   },
