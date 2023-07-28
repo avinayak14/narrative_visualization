@@ -64,6 +64,7 @@ function getAndDrawData() {
     params.forEach(function(param) {
       console.log(param.id);
           if (!d3.select('#' + param.id).property('checked')) {
+            console.log("testing reach");
             data = data.filter(d => d.EngineCylinders > 0);
           }
         });
