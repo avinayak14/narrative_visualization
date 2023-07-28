@@ -30,7 +30,7 @@ function getAndDrawData() {
       },
       type: d3.annotationLabel,
       x: 100,
-      y: 0,
+      y: 50,
       dx: 0,
       dy: -25
     },
@@ -43,9 +43,9 @@ function getAndDrawData() {
       },
       type: d3.annotationLabel,
       x: 200,
-      y: 0,
+      y: 200,
       dx: 0,
-      dy: -25
+      dy: 25
     }
   ];
   const makeAnnotations = d3.annotation().annotations(annotations);
