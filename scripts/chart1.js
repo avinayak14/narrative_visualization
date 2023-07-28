@@ -1,10 +1,10 @@
 charts.chart1 = function() {
   console.log("has hit chart 1 function");
-  getAndDrawData();
+  getAndDrawDataChart1();
 }
 
 
-function getAndDrawData() {
+function getAndDrawDataChart1() {
 
   const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
   const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
