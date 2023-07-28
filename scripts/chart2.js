@@ -81,7 +81,7 @@ function getAndDrawDataChart2() {
 
 const paramsChart2 = [
   {
-    id: "Nonzero",
+    id: "Include_Zero_Cyls",
   },
 ];
 
