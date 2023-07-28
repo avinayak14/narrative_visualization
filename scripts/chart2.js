@@ -99,9 +99,9 @@ const paramsChart2 = [
   {
     id: "Nonzero",
   },
-  {
-    id: "Zero",
-  },
+  // {
+  //   id: "Zero",
+  // },
 ];
 // var finalDataChart2 = [];
 //
