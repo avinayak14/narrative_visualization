@@ -65,11 +65,18 @@ function getAndDrawData() {
     // adding checkboxes:
     paramsChart2.forEach(function(param) {
       console.log(param.id);
-          if (!d3.select('#' + param.id).property('checked')) {
-            console.log("testing reach");
-            data = data.filter(d => d.EngineCylinders == 0);
-          }
-        });
+      if (!d3.select('#' + param.id).property('checked')) {
+        console.log("testing reach");
+        console.log(data);
+        data = data.filter(d => d.EngineCylinders == 0);
+        console.log("now filtered");
+        console.log(data);
+      }
+
+    });
+
+    console.log("going into svg");
+    console.log(data);
 
     svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
         .data(data)
