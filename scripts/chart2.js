@@ -30,7 +30,7 @@ function getAndDrawData() {
       },
       type: d3.annotationLabel,
       x: 100,
-      y: 200,
+      y: 290,
       dx: 0,
       dy: -25
     },
@@ -43,7 +43,7 @@ function getAndDrawData() {
       },
       type: d3.annotationLabel,
       x: 200,
-      y: 200,
+      y: 290,
       dx: 0,
       dy: -25
     }
@@ -65,7 +65,7 @@ function getAndDrawData() {
       console.log(param.id);
           if (!d3.select('#' + param.id).property('checked')) {
             console.log("testing reach");
-            data = data.filter(d => d.EngineCylinders == 8);
+            data = data.filter(d => d.EngineCylinders == 0);
           }
         });
 
