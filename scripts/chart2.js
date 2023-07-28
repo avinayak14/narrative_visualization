@@ -59,6 +59,15 @@ function getAndDrawData() {
   };
 
   d3.csv('data/cars_2017.csv', row, data => {
+
+    // adding checkboxes:
+    params.forEach(function(param) {
+      console.log(param.id);
+          if (!d3.select('#' + param.id).property('checked')) {
+            data = data.filter(d => d.EngineCylinders > 0);
+          }
+        });
+
     svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
         .data(data)
         .enter()
@@ -66,14 +75,6 @@ function getAndDrawData() {
         .attr('cx', d => xScale(d.AverageCityMPG))
         .attr('cy', d => yScale(d.AverageHighwayMPG))
         .attr('r', d => parseInt(d.EngineCylinders, 10) + 2);
-    // adding checkboxes:
-    const checkbox = svg.append('g').attr('type', 'checkbox');
-    params.forEach(function(param) {
-      console.log(param.id);
-          if (!d3.select('#' + param.id).property('checked')) {
-            data = data.filter(d => d.EngineCylinders > 0);
-          }
-        });
     // if (params.some(param => !d3.select('#' + param.id).property('checked'))) {
     //     // remove annotations
     //     d3.select('#svg-2-annotations').selectAll('*').remove();
