@@ -1,4 +1,5 @@
 charts.chart1 = function() {
+  console.log("has hit chart 1 function");
   getAndDrawData();
 }
 
@@ -12,6 +13,7 @@ function getAndDrawData() {
   const yAxis = d3.axisLeft(yScale).tickValues([10, 20, 50, 100]);
 
   const svg = d3.select('#svg1');
+  console.log("has hit chart 1 svg");
   svg.append('g')
       .attr('transform', 'translate(50,50)')
       .call(yAxis);
@@ -60,14 +62,14 @@ function getAndDrawData() {
 
   d3.csv('data/cars_2017.csv', row, data => {
 
-    // adding checkboxes:
-    paramsChart1.forEach(function(param) {
-      console.log(param.id);
-          if (!d3.select('#' + param.id).property('checked')) {
-            console.log("testing reach");
-            data = data.filter(d => d.EngineCylinders == 0);
-          }
-        });
+    // // adding checkboxes:
+    // paramsChart1.forEach(function(param) {
+    //   console.log(param.id);
+    //       if (!d3.select('#' + param.id).property('checked')) {
+    //         console.log("testing reach");
+    //         data = data.filter(d => d.EngineCylinders == 0);
+    //       }
+    //     });
 
     svg.append('g').attr('transform', 'translate(50,50)').selectAll("circle")
         .data(data)
@@ -89,9 +91,9 @@ const paramsChart1 = [
   },
 ];
 
-function updateChart2Data() {
-  getAndDrawData();
-}
+// function updateChart2Data() {
+//   getAndDrawData();
+// }
 
 
 // charts.chart1 = function() {

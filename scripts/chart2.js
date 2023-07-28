@@ -5,6 +5,8 @@ charts.chart2 = function() {
 
 function getAndDrawData() {
 
+  console.log("has hit chart 2 get and draw data");
+
   const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
   const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
 
