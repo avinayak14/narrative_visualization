@@ -25,7 +25,7 @@ function getAndDrawDataChart2() {
   const annotations = [
     {
       note: {
-        label: "Starts producing"
+        label: "Higher Engine Cylinder Count"
       },
       connector: {
         end: "arrow"
@@ -38,7 +38,7 @@ function getAndDrawDataChart2() {
     },
     {
       note: {
-        label: "Peak so far"
+        label: "Lower Engine Cylinder Count"
       },
       connector: {
         end: "arrow"
