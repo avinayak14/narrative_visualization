@@ -70,7 +70,7 @@ function getAndDrawData() {
     const checkbox = svg.append('g').attr('type', 'checkbox');
     params.forEach(function(param) {
       console.log(param.id);
-          if (!checkbox.property('checked')) {
+          if (!d3.select('#' + param.id).property('checked')) {
             data = data.filter(d => d.EngineCylinders > 0);
           }
         });
