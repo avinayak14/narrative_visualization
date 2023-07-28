@@ -68,7 +68,7 @@ function getAndDrawDataChart3() {
       if (!d3.select('#' + param.id).property('checked')) {
         console.log("testing reach");
         console.log(data);
-        data = data.filter(d => d.EngineCylinders != 0);
+        data = data.filter(d => d.AverageCityMPG < 20);
         console.log("now filtered");
         console.log(data);
       }
@@ -105,7 +105,7 @@ function getAndDrawDataChart3() {
 
 const paramsChart3 = [
   {
-    id: "Nonzero",
+    id: "City_MPG_Less_20",
   },
   // {
   //   id: "Zero",
