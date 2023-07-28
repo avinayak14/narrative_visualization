@@ -65,7 +65,7 @@ function getAndDrawData() {
       console.log(param.id);
           if (!d3.select('#' + param.id).property('checked')) {
             console.log("testing reach");
-            data = data.filter(d => d.EngineCylinders > 8);
+            data = data.filter(d => d.EngineCylinders == 8);
           }
         });
 
