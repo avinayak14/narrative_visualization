@@ -1,4 +1,9 @@
 charts.chart2 = function() {
+  getAndDrawData();
+}
+
+
+function getAndDrawData() {
 
   const xScale = d3.scaleLog().domain([10, 150]).range([0, 200]);
   const yScale = d3.scaleLog().domain([10, 150]).range([200, 0]);
@@ -287,6 +292,6 @@ const params = [
 //   },
 // ];
 //
-// function updateChart2Data() {
-//   getAndDrawData();
-// }
+function updateChart2Data() {
+  getAndDrawData();
+}
