@@ -92,7 +92,7 @@ function getAndDrawDataChart3() {
 
 const paramsChart3 = [
   {
-    id: "City_MPG_Less_20",
+    id: "Include_City_MPG_More_20",
   },
 ];
 
