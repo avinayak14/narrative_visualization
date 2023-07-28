@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Narrative Visualization</title>
+  <title>Automobile Narrative Visualization</title>
   <link rel="stylesheet" type="text/css" href="styles/fullpage.min.css"></style>
   <link rel="stylesheet" type="text/css" href="styles/style.css"></style>
 </head>
@@ -59,6 +59,18 @@
         <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
         <style> circle {fill: lightblue; stroke: black;} </style>
         <svg width=600 height=600 id="svg1"></svg>
+        <div class="intro">
+          <p>
+            This log scale static chart shows a graph of a set of vehicles with varying
+            average city MPG fuel economy and varying average highway MPG fuel
+            economy. The radius of each circle is based on 2 plus the number of
+            engine cylinders present in the make and the model. The annotations
+            demonstrate an inverse relationship (correlation, not necessarily causality)
+            between fuel economy and the number of engine cylinders. Average Highway
+            MPG is represented on the y-axis and average city MPG is represented
+            on the x-axis.
+          </p>
+        </div>
       </div>
       <div class="slide">
         <h3>Average Highway MPG vs. Average City MPG (With Filter)</h3>
@@ -68,6 +80,23 @@
         <svg width=600 height=600 id="svg2"></svg>
           <input type="checkbox" checked="checked" value="2015" id="Include_Zero_Cyls" onClick="updateChart2Data()">Include_Zero_Cyls</input>
         </svg>
+        <div class="intro">
+          <p>
+            This log scale chart shows a graph of a set of vehicles with varying
+            average city MPG fuel economy and varying average highway MPG fuel
+            economy. The radius of each circle is based on 2 plus the number of
+            engine cylinders present in the make and the model. The annotations
+            demonstrate an inverse relationship (correlation, not necessarily causality)
+            between fuel economy and the number of engine cylinders. Average Highway
+            MPG is represented on the y-axis and average city MPG is represented
+            on the x-axis.
+          </p>
+          <p>
+            Additionally, free-form interaction is allowed with the checkbox
+            labeled "Include_Zero_Cyls", where users can choose whether they want
+            to include row entries for vehicles with zero engine cylinders.
+          </p>
+        </div>
       </div>
       <div class="slide">
         <h3>Average Highway MPG vs. Average City MPG (With Filter and Params)</h3>
@@ -77,13 +106,28 @@
         <svg width=600 height=600 id="svg3"></svg>
           <input type="checkbox" checked="checked" value="2015" id="Include_City_MPG_More_20" onClick="updateChart3Data()">Include_City_MPG_More_20</input>
         </svg>
+        <div class="intro">
+          <p>
+            This log scale chart shows a graph of a set of vehicles with varying
+            average city MPG fuel economy and varying average highway MPG fuel
+            economy. The radius of each circle is based on 2 plus the number of
+            engine cylinders present in the make and the model. The annotations
+            demonstrate an inverse relationship (correlation, not necessarily causality)
+            between fuel economy and the number of engine cylinders. Average Highway
+            MPG is represented on the y-axis and average city MPG is represented
+            on the x-axis.
+          </p>
+          <p>
+            Additionally, free-form interaction is allowed with the checkbox
+            labeled "Include_City_MPG_More_20", where users can choose whether they want
+            to include row entries for vehicles with an average city MPG greater
+            than 20 miles per gallon.
+          </p>
+        </div>
       </div>
       <div class="slide">
         <h2>Thank You!</h2>
         <div class="intro">
-          <p>
-            Thank you!
-          </p>
         </div>
       </div>
     </div>
